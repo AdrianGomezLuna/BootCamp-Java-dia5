@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import java.util.List;
@@ -109,6 +110,20 @@ class CarritoCompraServiceImplTest {
 		assertEquals(18D, res);		
 		//Con lo verify
 		verify(basedatos).findArticuloById(any(Integer.class));
+	}
+	
+	@Test
+	void testInsertar() {
+		Articulo articulo = new Articulo("chandal", 20.00);
+		when(basedatos.insertarArticulo(any(Articulo.class))).thenReturn(0);
+		Integer identificador = carritoService.insertar(articulo);
+		List<Articulo> articulos = carritoService.getArticulo();
+		
+		assertEquals(0, identificador);
+		assertEquals("chandal", articulos.get(identificador).getName());
+		assertEquals(20D, articulos.get(identificador).getPrecio());
+
+		verify(basedatos, atLeast(1)).insertarArticulo(any(Articulo.class));
 	}
 
 }

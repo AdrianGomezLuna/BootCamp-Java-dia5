@@ -65,6 +65,13 @@ public class CarritoCompraServiceImpl implements CarritoCompraServiceI{
 				
 		return resul;
 	}
+
+	@Override
+	public Integer insertar(Articulo articulo) {
+		Integer  identificador = baseDatos.insertarArticulo(articulo);
+		cesta.add(articulo);
+		return identificador;
+	}
 	
 
 }

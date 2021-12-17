@@ -13,9 +13,9 @@ public class BaseDatosImpl implements BaseDatosI{
 	private Map<Integer, Articulo> baseDatos;
 
 	@Override
-	public String insertarArticulo(Articulo articulo) {
+	public Integer insertarArticulo(Articulo articulo) {
 		baseDatos.put(baseDatos.size()+1, articulo);
-		return articulo.getName();
+		return baseDatos.size();
 	}
 
 	@Override

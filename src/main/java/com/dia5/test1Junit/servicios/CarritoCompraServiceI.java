@@ -19,4 +19,6 @@ public interface CarritoCompraServiceI {
 	public Double calcularDescuento(double precio, double porcentajeDescuento);
 	
 	public Double aplicarDescuento(Integer id, Double descuento);
+	
+	public Integer insertar(Articulo articulo);
 }

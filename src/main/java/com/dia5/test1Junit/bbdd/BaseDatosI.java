@@ -4,7 +4,7 @@ import com.dia5.test1Junit.model.Articulo;
 
 public interface BaseDatosI {
 	
-	public String insertarArticulo(Articulo articulo);
+	public Integer insertarArticulo(Articulo articulo);
 	
 	public Articulo findArticuloById(Integer identificador);
 	
